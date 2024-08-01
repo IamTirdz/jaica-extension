@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "JAICA",
+  "description": "Just Another Intelligent Chat Assistant",
+  "version": "1.0",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "sidePanel", 
+    "storage", 
+    "activeTab", 
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "serviceWorker.js"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "JAICA",
+    "default_icon": "icon48.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U",
+        "chromeos": "Ctrl+Shift+U",
+        "linux": "Ctrl+Shift+U"
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

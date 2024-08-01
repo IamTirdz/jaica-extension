@@ -1,0 +1,178 @@
+/* header */
+.setting-header-container {
+    margin: 0;
+    background-color: #fcfcfc;
+}
+
+.setting-header {
+    display: flex;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    z-index: 1000;
+    /* border-bottom: 1px solid #505866; */
+}
+
+.header-logo {
+    height: 24px;
+}
+
+.save-settings-button {
+    padding: 7px 15px;
+    align-self: flex-end;
+    border: none;
+    border-radius: 10px;
+    background-color: #121C2D;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 10px;
+}
+
+.save-settings-button:hover {
+    background-color: #3d5780;
+}
+
+/* content */
+.chat-settings {
+    padding: 0 20px;
+}
+
+.chat-settings h3 {
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-settings-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+}
+
+.chat-settings-group h4 {
+    font-size: 14px;
+    margin: 0 0 10px 10px;
+}
+
+.form-group-top,
+.form-group-center,
+.form-group-bottom,
+.form-group-none {
+    display: flex;
+    padding: 10px 15px;
+    background-color: #f9fafc;
+    align-items: center;
+}
+
+.form-group-top {
+    border-radius: 10px 10px 0 0;
+}
+
+.form-group-bottom {
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 20px;
+}
+
+.form-group-none{
+    border-radius: 10px;
+}
+
+.form-group-top label,
+.form-group-center label,
+.form-group-bottom label,
+.form-group-none label {
+    flex-grow: 1;
+    font-size: 12px;
+}
+
+.form-group-child {
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group-child ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-group-child li {
+    margin-bottom: 10px;
+}
+
+.form-group-child select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80px;
+    font-size: 11px;
+}
+
+.form-group-child input[type="checkbox"] {
+    display: none;
+}
+
+/* toggle button */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input:checked + .slider {
+    background-color: #121C2D;
+}
+
+.toggle-switch input:focus + .slider {
+    box-shadow: 0 0 1px #3d5780;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+/* Slider before pseudo-element */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.delete-chats-button  {
+    padding: 7px 15px;
+    align-self: flex-end;
+    border: none;
+    border-radius: 10px;
+    background-color: #C30010;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 10px;
+}
+
+.delete-chats-button:hover {
+    background-color: #DE0A26;
+}
