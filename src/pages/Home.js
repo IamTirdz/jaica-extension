@@ -1,10 +1,12 @@
 import ChatBot from "components/ChatBot";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
+    
+
     return (
         <div className="home">
-            <ChatBot trainModel={true} />
+            <ChatBot defaultMessage={true} />
         </div>
     );
 };

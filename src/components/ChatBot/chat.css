@@ -12,74 +12,153 @@
     background-color: #fcfcfc;
 }
 
+.chat-header-content {
+    border: none;
+}
+
 .chat-header {
     display: flex;
     top: 0;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    z-index: 1000;
     /* border-bottom: 1px solid #505866; */
 }
 
 .header-logo {
-    height: 24px;
+    padding: 5px 8px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.train-model-button {
-    padding: 7px 15px;
-    align-self: flex-end;
-    border: none;
-    border-radius: 10px;
-    background-color: #121C2D;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 10px;
-}
-
-.train-model-button:hover {
-    background-color: #3d5780;
-}
-
-.new-chat-button {
-    padding: 7px 15px;
-    align-self: flex-end;
-    border: none;
-    border-radius: 10px;
-    background-color: #121C2D;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 10px;
-}
-
-.new-chat-button:hover {
-    background-color: #3d5780;
+.message-display-inactive {
+    display: none;
 }
 
 .message-display {
     background-color: #121C2D;
     top: 0;
-    width: 100%;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    position: relative;
+    z-index: 1;
 }
 
 .message-display .label{
-    margin: 0 10px;
     color: #fff;
     font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .message-display .path{
-    color: #3FD205;
-    margin: 0 10px;
-    font-weight: bold;
+    color: #3FD205;    
     font-size: 14px;
+    font-weight: bold;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.train-model-button {
+    padding: 5px 8px;
+    align-self: flex-end;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    border: 1px solid #121C2D;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 10px;
+}
+
+.train-model-button .icon {
+    background-image: url('../../assets/magic-stick.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.train-model-button:hover {
+    background-color: #F0F4F9;
+    border: 1px solid #F0F4F9;
+}
+
+.train-model-button:hover::after {
+    content: "Start Training";
+    color: white;
+    position: absolute;
+    top: 50px;
+    transform: translateY(-50%);
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 1;
+}
+  
+.train-model-button::after {
+    content: "";
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.new-chat-button {
+    padding: 5px 8px;
+    align-self: flex-end;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    border: 1px solid #121C2D;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 10px;
+}
+
+.new-chat-button .icon {
+    background-image: url('../../assets/new-chat.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.new-chat-button:hover {
+    background-color: #F0F4F9;
+    border: 1px solid #F0F4F9;
+}
+
+.new-chat-button:hover::after {
+    content: "New Chat";
+    color: white;
+    position: absolute;
+    top: 50px;
+    transform: translateY(-50%);
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 1;
+}
+  
+.new-chat-button::after {
+    content: "";
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 /* content */
@@ -103,6 +182,14 @@
 .message-item.user {
     background-color: #efefef;
     align-self: flex-end;
+}
+
+.chat-messages-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    width: 100%;
 }
 
 .chat-messages {

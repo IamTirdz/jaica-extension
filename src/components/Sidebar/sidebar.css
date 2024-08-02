@@ -3,7 +3,7 @@
     top: 0;
     right: 0;
     width: 60px;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,11 +15,12 @@
 .sidebar-logo {
     width: 40px;
     height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all 0.3s ease-in-out;
     margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    flex-grow: 1;
 }
 
 .menu-item {
@@ -48,4 +49,8 @@
 .menu-item .label {
     margin-top: 10px;
     font-size: 10px;
+}
+
+.sidebar-footer {
+    padding-bottom: 20px;
 }

@@ -5,12 +5,14 @@ import TextInput from './TextInput'
 import ChatContextProvider from 'contexts/ChatContext'
 import './chat.css'
 
-const ChatBot = ({ trainModel}) => {
+const ChatBot = ({ defaultMessage }) => {
     return (
         <ChatContextProvider>
             <div className='chat-container'>
-                <ChatHeader showTrainButton={trainModel} />
-                <ChatMessages defaultMessage={!trainModel} />
+                <ChatHeader 
+                    showTrainButton={defaultMessage}
+                    showNewChatButton={!defaultMessage} />
+                <ChatMessages defaultMessage={!defaultMessage} />
                 <TextInput />
             </div>
         </ChatContextProvider>

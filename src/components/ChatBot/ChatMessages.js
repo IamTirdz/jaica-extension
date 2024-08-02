@@ -7,7 +7,7 @@ const ChatMessages = ({ defaultMessage }) => {
     const { messages } = useContext(ChatContext);
 
     return (
-        <div className="chat-messages">
+        <div className="chat-messages-content">
             { messages.length === 0 ? (
                 <div>
                     { defaultMessage ? (

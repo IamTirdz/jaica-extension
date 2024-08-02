@@ -28,6 +28,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 10px;
+    display: none;
 }
 
 .save-settings-button:hover {

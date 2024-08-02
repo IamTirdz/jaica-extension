@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import SettingHeader from '../ChatSettings/SettingHeader';
 import FormGroup from './FormGroup';
 import './chat-settings.css'
+import ChatHeader from 'components/ChatBot/ChatHeader';
 
 const ChatSettings = () => {
     const [theme, setTheme] = useState('light');
@@ -18,7 +18,9 @@ const ChatSettings = () => {
 
     return (
         <div className='settings-container'>
-            <SettingHeader onClick={() => handleSettings} />
+            <ChatHeader 
+                showTrainButton={false}
+                showNewChatButton={false} />
             <div className='chat-settings'>
                 <h3>Settings</h3>
                 <div className='chat-settings-group'>

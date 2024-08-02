@@ -21,7 +21,7 @@ const TextInput = () => {
     return (
         <div className="chat-input">
             <form className="input-form" onSubmit={handleSubmit}>
-                <div className="input-container">  {/* Add this container */}
+                <div className="input-container">
                     <textarea className="input-field" type="text" value={input} onChange={handleChange} placeholder="Ask anything.." />
                 </div>
                 <button className="send-button" type="submit">

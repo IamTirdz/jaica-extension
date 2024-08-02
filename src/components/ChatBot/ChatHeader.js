@@ -1,49 +1,55 @@
-import React, { useEffect, useState } from 'react'
+/* global chrome */
+
+import React, { useContext, useState } from 'react'
 import appLogo from 'assets/app-name.png'
+import { ChatContext } from 'contexts/ChatContext';
 
-const ChatHeader = ({ showTrainButton }) => {
-    const [buttonVisible, setButtonVisible] = useState(showTrainButton);
+const ChatHeader = ({ showTrainButton, showNewChatButton }) => {
     const [tabTitle, setTabTitle] = useState('');
-
-    useEffect(() => {
-        // chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        //     if (request.title) {
-        //         setTabTitle(request.title);
-        //     }
-        // });
-    }, []);
+    const { messages } = useContext(ChatContext);
     
-    const toggleHeader = () => {
-        setButtonVisible(!buttonVisible);
+    const handleTrainAI = () => {
+        chrome.runtime.sendMessage({ action: 'getTabTitle' }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.error('Message error: ', chrome.runtime.lastError);
+                setTabTitle('Error retrieving page title');
+            } else {
+                setTabTitle(response.title || 'No page title found');
+            }
+        });
     };
 
-    const handleSubmit = () => {
-        console.log('Bot train clicked!');
-        // todo
-    };
-
-    const handleClear = () => {
-        console.log('Bit train clicked!');
+    const handleNewChat = () => {
+        console.log('(Code Generation) New chat..');
         // todo
     };
 
     return (
         <div className='chat-header-container'>
-            <div className='chat-header'>
-                <img src={appLogo} alt="AppLogo" className="header-logo"/>
-                { buttonVisible &&
-                    <button className='train-model-button' onClick={handleSubmit}>Train</button>
-                }
-                { !buttonVisible &&
-                    <button className='new-chat-button' onClick={handleClear}>New Chat</button>
-                }
-            </div>
-            { buttonVisible && 
-                <div className='message-display'>
-                    <p className='label'>Currently chatting on page:</p>
-                    <p className='path'>{tabTitle}</p>
-                </div>  
-            }                            
+            <div className='chat-header-content'>
+                <div className='chat-header'>
+                    <img src={appLogo} alt="Logo" className="header-logo"/>
+                    { showTrainButton &&
+                        <button className='train-model-button' onClick={handleTrainAI}>
+                            <span className="icon"></span>
+                        </button>
+                    }
+                    { showNewChatButton &&
+                        <button className='new-chat-button' onClick={handleNewChat}>
+                            <span className="icon"></span>
+                        </button>
+                    }
+                </div>
+                
+                { messages.length !== 0 && showTrainButton && !showNewChatButton ? (
+                    <div className='message-display'>
+                        <p className='label'>Currently chatting on page:</p>
+                        <p className='path'>{tabTitle}</p>
+                    </div> 
+                ) : (                    
+                    <div className='message-display-inactive'></div>
+                )}
+            </div>                                     
         </div>
     )
 }

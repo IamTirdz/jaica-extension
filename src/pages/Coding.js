@@ -4,7 +4,7 @@ import ChatBot from "components/ChatBot";
 const Coding = () => {
     return (
         <div className="home">
-            <ChatBot trainModel={false} />
+            <ChatBot defaultMessage={false} />
         </div>
     );
 };
